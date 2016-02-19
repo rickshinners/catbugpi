@@ -7,7 +7,7 @@ import json
 
 reverse_strip_order = False
 led_count = 32
-use_visualizer = True
+use_visualizer = False
 
 if use_visualizer:
     from bibliopixel.drivers.visualizer import DriverVisualizer
@@ -42,7 +42,7 @@ class pixel:
 class MyApplication(web.application):
     def run(self, port=80, *middleware):
         func = self.wsgifunc(*middleware)
-        return web.httpserver.runsimple(func, ('localhost', port))
+        return web.httpserver.runsimple(func, ('0.0.0.0', port))
 
 
 def get_pixel_index(idx):
